@@ -5,13 +5,17 @@ from PIL import Image
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 from functools import partial
+from typing import Union
 
 logger = logging.getLogger(__name__)
 
 EXTENSIONS=['.jpg', '.jpeg', '.png']
 
 
-def _validate_image(filepath, remove=False):
+def _validate_image(
+    filepath: Union[str, Path],
+    remove: bool=False
+):
     try:
         with Image.open(filepath) as img:
             img.convert("RGB").verify()
@@ -24,7 +28,10 @@ def _validate_image(filepath, remove=False):
         return False
 
 
-def validate(folderpath, remove=False):
+def validate(
+    folderpath: Union[str, Path],
+    remove: bool=False
+):
     root = Path(folderpath)
     n = len(root.parts)
     filepaths = np.array([
