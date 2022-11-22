@@ -1,5 +1,7 @@
 # imagepile
 
+[![PyPI badge imagepile](https://img.shields.io/pypi/v/imagepile.svg)](https://pypi.python.org/pypi/imagepile)
+
 Image tools for large image repositories
 
 # Usage
