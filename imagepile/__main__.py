@@ -9,6 +9,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="Remove invalid images from a folder")
     parser.add_argument("folderpath")
+    parser.add_argument("--remove", action="store_true", help="Remove faulty images")
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -16,4 +17,4 @@ def main():
         datefmt='%Y-%m-%d %H:%M:%S',
         level=logging.INFO)
 
-    validate(args.folderpath)
+    validate(args.folderpath, args.remove)
